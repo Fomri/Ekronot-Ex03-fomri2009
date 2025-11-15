@@ -81,3 +81,26 @@ void Vector::assign(int val) {
 		_elements[i] = val;
 	}
 }
+
+void Vector::resize(int n, const int& val) {
+	if (n <= _capacity) {
+		for (int i = _size; i < n; i++) {
+			_elements[i] = val;
+		}
+		_size = n;
+	}
+	else {
+		int newCapacity = _capacity;
+		while (newCapacity < n) {
+			newCapacity += _resizeFactor;
+		}
+
+		reserve(newCapacity);
+
+		for (int i = _size; i < n; i++) {
+			_elements[i] = val;
+		}
+
+		_size = n;
+	}
+}
