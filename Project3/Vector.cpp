@@ -41,5 +41,23 @@ int Vector::pop_back() {
 		std::cout << "error: pop from empty vector" << std::endl;
 		return -9999;
 	}
-
+	_size--;
+	return _elements[_size];
 }
+
+void Vector::reserve(int n) {
+	if (_capacity >= n) {
+		return;
+	}
+
+	int* newArray = new int[n];
+	for (int i = 0; i < _size; i++) {
+		newArray[i] = _elements[i];
+	}
+
+	delete[] _elements;
+
+	_elements = newArray;
+	_capacity = n;
+}
+
