@@ -77,7 +77,7 @@ void Vector::resize(int n) {
 }
 
 void Vector::assign(int val) {
-	for (int i = 0; i < size; i++) {
+	for (int i = 0; i < _size; i++) {
 		_elements[i] = val;
 	}
 }
