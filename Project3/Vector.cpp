@@ -104,3 +104,32 @@ void Vector::resize(int n, const int& val) {
 		_size = n;
 	}
 }
+
+Vector::Vector(const Vector& other) {
+	_capacity = other._capacity;
+	_size = other._size;
+	_resizeFactor = other._resizeFactor;
+	_elements = new int[_capacity];
+	for (int i = 0; i < _size; i++) {
+		_elements[i] = other._elements[i];
+	}
+}
+
+Vector& Vector::operator=(const Vector& other) {
+	if (this == &other) {
+		return *this;
+	}
+
+	delete[] _elements;
+	_capacity = other._capacity;
+	_size = other._size;
+	_resizeFactor = other._resizeFactor;
+
+	_elements = new int[_capacity];
+	for (int i = 0; i < _size; i++) {
+		_elements[i] = other._elements[i];
+	}
+	return *this;
+}
+
+
