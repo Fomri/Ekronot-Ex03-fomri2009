@@ -61,3 +61,23 @@ void Vector::reserve(int n) {
 	_capacity = n;
 }
 
+void Vector::resize(int n) {
+	if (n <= _capacity) {
+		_size = n;
+	} 
+	else {
+		int newCapacity = _capacity;
+		while (newCapacity < n) {
+			newCapacity += _resizeFactor;
+		}
+
+		reserve(newCapacity);
+		_size = n;
+	}
+}
+
+void Vector::assign(int val) {
+	for (int i = 0; i < size; i++) {
+		_elements[i] = val;
+	}
+}
