@@ -132,4 +132,11 @@ Vector& Vector::operator=(const Vector& other) {
 	return *this;
 }
 
+int& Vector::operator[](int n) const {
+	if (n < 0 || n >= _size) {
+		std::cout << "ERROR! selected index is out of bounds, returning first element" << std::endl;
+		return _elements[0];
+	}
+	return _elements[n];
+}
 
