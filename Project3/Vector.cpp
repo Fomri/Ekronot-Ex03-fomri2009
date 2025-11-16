@@ -1,10 +1,13 @@
 #include "Vector.h"
 
 Vector::Vector(int n) {
-	int _capicity = n;
-	int _size = 0;
-	int* _elements = new int[_capacity];
-	int _resizeFactor = 2;
+	if (n < 2) {
+		n = 2;
+	}
+	_capacity = n;
+	_size = 0;
+	_elements = new int[_capacity];
+	_resizeFactor = n;
 }
 
 Vector::~Vector() {
